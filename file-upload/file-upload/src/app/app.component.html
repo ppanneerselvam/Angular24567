@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!DOCTYPE html>
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}
+  </h1>
+    <h3>Customer Details</h3>
+  
+<div class="csv-file-chooser-section">
+
+  <input type="file" #fileImportInput name="File Upload" id="txtFileUpload" (change)="fileChangeListener($event)"
+         accept=".csv"/>
+
+</div>
+<div class="csv-result-table">
+  <table>
+    <thead>
+    <tr>
+      <th>S.No</th>
+      <th>First name</th>
+      <th>Sur name</th>
+      <th>Issue count</th>
+      <th>Data of birth</th>      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let csvData of csvRecords;let j = index;">
+      <td>{{j+1}}</td>
+      <td>
+        <span>{{csvData.firstName}}</span>
+      </td>
+      <td>
+        <span>{{csvData.surName}}</span>
+      </td>
+      <td>
+        <span>{{csvData.issueCount}}</span>
+        </td>
+      <td>
+        <span>{{csvData.dataofBirth}}</span>
+      </td>
+     
+      </tr>
+    </tbody>
+  </table>
+</div>
